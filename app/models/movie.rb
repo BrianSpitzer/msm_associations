@@ -13,5 +13,15 @@
 #  updated_at  :datetime         not null
 #
 
+# Movie:
+#  - director_id: must be present
+#  - title: must be present; must be unique in combination with year
+#  - year: must be integer between 1870 and 2050
+#  - duration: must be integer between 0 and 2764800, but it can be blank (hint: there is an option `:allow_blank => true`)
+#  - description: no rules
+#  - image_url: no rules
+
 class Movie < ApplicationRecord
+    validates :director_id, presence: true
+    
 end
