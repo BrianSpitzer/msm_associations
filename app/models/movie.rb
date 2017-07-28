@@ -23,5 +23,8 @@
 
 class Movie < ApplicationRecord
     validates :director_id, presence: true
-    
+    validates :title, presence: true
+    validates :title, uniqueness: { scope: :year, message: "Title and year must be unique" }
+    validates :year, numericality: { only_integer: true, greater_than: 1869, less_than: 2051 }
+    validates :duration, numericality: {only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 2764800, allow_blank: true }
 end
