@@ -22,4 +22,6 @@ class Director < ApplicationRecord
     #  - name: must be present; must be unique in combination with dob
     validates :name, :presence => true, :uniqueness => { :scope => :dob, :message => "Name and DOB must be unique" }
     
+    has_many :movies, :class_name => "Movie", :foreign_key => "actor_id"
+    
 end
