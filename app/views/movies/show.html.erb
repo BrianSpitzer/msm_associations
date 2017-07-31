@@ -53,6 +53,13 @@
   <% end %>
 </ul>
 
+<h4>Cast of <%=@movie.title%></h4>
+<ul>
+  <% Character.where(:movie_id => @movie.id).each do |character| %>
+    <li><a href="/actors/<%= character.actor_id %>"><%= Actor.find_by(:id => character.actor_id).name %></a></li>
+  <% end %>
+</ul>
+
 <h4>Add a new character in <%= @movie.title %></h4>
 <div class="row">
   <div class="col-md-12">
